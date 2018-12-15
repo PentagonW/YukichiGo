@@ -24,3 +24,4 @@ Rails.start();
 
 import 'packs/main_monster'
 import 'packs/add_monster'
+import 'packs/alert_battle'
