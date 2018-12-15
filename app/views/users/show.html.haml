@@ -6,6 +6,7 @@
         %h2.title ユーザー情報
         %p あなたの名前 : #{@user.name}
         = link_to 'ユキチ名変更', edit_user_path(@user), class: "btn btn-primary"
+        = link_to 'バトル履歴', user_battles_path(@user), class: "btn btn-information"
   .mb-2
     - if current_user.main_monster.nil?
       .card
