@@ -12,10 +12,11 @@ class BattleJudge
     return if invalid?
 
     trilemma
-    scores = monsters.map {|monster| [monster_power(monster), monster.user] }.to_h
+    barance =  (powers.first + 0.1 ) / (powers.sum + 0.2)
+    destiny = rand
 
-    self.winner = scores[scores.keys.max]
-    self.loser = scores[scores.keys.min]
+    self.winner, self.loser = users if destiny < barance
+    self.loser, self.winner = users if destiny >= barance
   end
 
   def save
@@ -53,12 +54,10 @@ class BattleJudge
       end
 
       if TRILEMMA[monsters.first.class_type] == monsters.last.class_type
-        monsters.first.power *= 1.2
-        monsters.last.power *= 0.8
+        monsters.first.power *= 1.4
       end
       if TRILEMMA[monsters.last.class_type] == monsters.first.class_type
-        monsters.first.power *= 0.8
-        monsters.last.power *= 1.2
+        monsters.last.power *= 1.4
       end
     end
 end
