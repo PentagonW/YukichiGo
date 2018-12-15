@@ -8,4 +8,12 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import 'bootstrap'
+import fontawesome from '@fortawesome/fontawesome'
+import faSolid from '@fortawesome/fontawesome-free-solid'
+import faRegular from '@fortawesome/fontawesome-free-regular'
+import faBrands from '@fortawesome/fontawesome-free-brands'
 import 'src/application'
+
+fontawesome.library.add(faSolid, faRegular, faBrands)
+fontawesome.dom.i2svg()
+
