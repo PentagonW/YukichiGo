@@ -9,7 +9,7 @@ class BattleJudge
   def winner
     return right_monster if right_monster.power > left_monster.power
 
-    left_monster.power
+    left_monster
   end
 
   def loser
