@@ -49,7 +49,7 @@ class BattleJudge
 
     def trilemma
       monsters.each do |monster|
-        monster.build_ability.save unless monster.class_type
+        monster.create_ability unless monster.class_type
       end
 
       if TRILEMMA[monsters.first.class_type] == monsters.last.class_type

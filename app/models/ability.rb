@@ -8,6 +8,6 @@ class Ability < ApplicationRecord
   private
 
     def set_type
-      type ||= rand(3)
+      self.class_type ||= rand(3)
     end
 end
