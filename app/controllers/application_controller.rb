@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :current_user
+
   def browser_id
     @browser_id ||= cookies["nogichi_go"] || generate_cookies
   end

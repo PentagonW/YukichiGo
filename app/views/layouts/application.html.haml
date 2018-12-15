@@ -20,4 +20,5 @@
         %i.fas.fa-camera
       .menu-monsters
         %i.fas.fa-money-bill
-        %p モンスター一覧
+        = link_to user_path current_user.id do
+          %p モンスター一覧
