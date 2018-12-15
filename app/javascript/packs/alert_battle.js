@@ -12,7 +12,7 @@ $(() => {
   const menu_battle = $(".js-menu-battle");
   menu_battle.on('click', function() {
     if(document.querySelector(".js-main_monster") === null) {
-      flash("モンスターまたは、マイページからメインモンスターを登録してください");
+      flash("ユーザー情報のノグチ一覧から、メインノグチを登録してください");
     }
   });
 });
