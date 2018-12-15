@@ -51,6 +51,10 @@
     %p.mini ノグチ追加
   = f.file_field :file, style: "display:none;", class: "js-file-input"
 
+-# loading
+.loading_page.d-none.js-loading
+  .loader
+
 -# modal
 - current_user.monsters.each do |monster|
   .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "monster_#{monster.id}"}

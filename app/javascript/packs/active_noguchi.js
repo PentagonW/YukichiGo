@@ -21,12 +21,14 @@ $(() => {
     })
   }, 5000)
 
-  setTimeout(() => {
-    result.classList.remove("d-none")
-    anime({
-      targets: result,
-      opacity:[0,1],
-      easing: 'easeInOutQuart'
-    })
-  }, 6000)
+  if(result) {
+    setTimeout(() => {
+      result.classList.remove("d-none")
+      anime({
+        targets: result,
+        opacity:[0,1],
+        easing: 'easeInOutQuart'
+      })
+    }, 6000)
+  }
 })
