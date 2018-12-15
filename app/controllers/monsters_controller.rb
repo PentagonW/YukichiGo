@@ -17,6 +17,13 @@ class MonstersController < ApplicationController
     end
   end
 
+  def complete
+
+  end
+
+  def failure
+  end
+
   private
 
     def form_params

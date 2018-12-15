@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  resources :monsters
+  resources :monsters do
+    collection do
+      get 'complete'
+    end
+  end
+
   resources :battles, only: :new
   resources :users, only: [:show, :edit, :update] do
     resources :battles, only: :index
