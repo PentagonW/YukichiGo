@@ -11,7 +11,7 @@ class AddAdjective
   end
 
   def adjective_noguchi
-    noguchi.name = "#{ramdom_adjective_word.name} #{noguchi.name}"
+    noguchi.name = "#{ramdom_adjective_word} #{noguchi.name}"
   end
 
   private
@@ -19,6 +19,6 @@ class AddAdjective
     def ramdom_adjective_word
       return 'みんなの' unless AdjectiveWord.all&.size > 1
 
-      AdjectiveWord.where( 'id >= ?', rand(AdjectiveWord.first.id..AdjectiveWord.last.id) ).first
+      AdjectiveWord.where( 'id >= ?', rand(AdjectiveWord.first.id..AdjectiveWord.last.id) ).first.name
     end
 end
