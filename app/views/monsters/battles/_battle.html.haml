@@ -1,0 +1,8 @@
+- if battles.blank?
+  %span まだバトルはありません
+- else
+  - battles.each do |battle|
+      .list-group
+        %span
+          = battle.winner.name
+          = battle.loser.name

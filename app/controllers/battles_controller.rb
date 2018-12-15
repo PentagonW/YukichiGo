@@ -1,6 +1,9 @@
 class BattlesController < ApplicationController
   def index
-    @battles = current_user.battles
+    @eee = nil
+    binding.pry
+    @win_battles = current_user.monsters&.where(monster_id: params[:monster_id])&.win_battles
+    @lose_battles = current_user.monsters&.where(monster_id: params[:monster_id])&.lose_battles
   end
 
   def new
