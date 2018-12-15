@@ -23,3 +23,4 @@ import Rails from 'rails-ujs';
 Rails.start();
 
 import 'packs/main_monster'
+import 'packs/add_monster'
