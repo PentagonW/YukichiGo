@@ -1,3 +1,4 @@
 %p 失敗しました。
-- flash.each do |type, msg|
-  = msg
+- if @moster_form.errors.full_messages.any?
+  - @moster_form.errors.full_messages.each do |message|
+    = message
