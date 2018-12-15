@@ -23,7 +23,6 @@ menu-base {
 
 .menu-world {
   @extend menu-base;
-  // border-right: solid 1px gray;
 }
 
 .menu-user {
@@ -36,8 +35,6 @@ menu-base {
 
 .menu-camera {
   @extend menu-base;
-  // border-left: solid 1px gray;
-  // border-right: solid 1px gray;
 }
 
 .menu-new-noguchi {
