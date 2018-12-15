@@ -11,7 +11,3 @@ AdjectiveWord.create(name: "明るい", power: 88)
 AdjectiveWord.create(name: "みえそうで見えない", power: 45)
 AdjectiveWord.create(name: "かしこそうな", power: 82)
 AdjectiveWord.create(name: "イケてる", power: 43)
-
-["strength", "defence", "speed", "intelligence", "special"].each do |name|
-  Ability.create  name: name
-end
