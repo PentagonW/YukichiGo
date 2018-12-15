@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_12_15_052443) do
 
   create_table "monsters", force: :cascade do |t|
     t.string "serial_number", null: false
-    t.integer "power"
+    t.integer "power", null: false
   end
 
 end
