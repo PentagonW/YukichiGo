@@ -53,8 +53,8 @@
     = f.file_field :file, style: "display:none;", class: "js-file-input"
 
 -# loading
-.loading_page.d-none.js-loading
-  .loader
+.load.d-none.js-loading
+  = image_tag "yukichi.png", width: "100px"
 
 -# modal
 - current_user.monsters.each do |monster|
