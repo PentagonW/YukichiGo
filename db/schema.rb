@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_181317) do
+ActiveRecord::Schema.define(version: 2018_12_15_181619) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "monster_id"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 2018_12_15_181317) do
     t.datetime "updated_at", null: false
     t.index ["loser_id"], name: "index_battles_on_loser_id"
     t.index ["winner_id"], name: "index_battles_on_winner_id"
+  end
+
+  create_table "money_histories", force: :cascade do |t|
+    t.integer "price"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "monsters", force: :cascade do |t|
