@@ -41,6 +41,6 @@
               %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
                 %span{"aria-hidden" => "true"} ×
             .modal-body
-              = qrcode_tag("#")
+              .text-center= qrcode_tag new_battle_url(user_id: current_user.id), module_size: 5
             .modal-footer
               %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
