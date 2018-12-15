@@ -14,14 +14,13 @@ import faRegular from '@fortawesome/fontawesome-free-regular'
 import faBrands from '@fortawesome/fontawesome-free-brands'
 import 'src/application'
 
-import 'packs/active_noguchi'
-
 fontawesome.library.add(faSolid, faRegular, faBrands)
 fontawesome.dom.i2svg()
 
 import Rails from 'rails-ujs';
 Rails.start();
 
+import 'packs/active_noguchi'
 import 'packs/main_monster'
 import 'packs/add_monster'
 import 'packs/alert_battle'
