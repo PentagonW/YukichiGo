@@ -5,10 +5,11 @@
         = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
 
       .monster-information
-        .mb-1 #{ monster.user.name }さんのノグチ
+        .mb-2 #{ monster.user.name }さんのノグチ
 
-        %div= monster.display_name
-        %div パワー : #{ monster.power }
-        %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
-        - if monster.user != current_user
-          = link_to "こいつと戦う", new_user_battle_url(monster.user), class: "btn btn-primary"
+        .small
+          %div= monster.display_name
+          %div パワー : #{ monster.power }
+          %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
+          - if monster.user != current_user
+            = link_to "このノグチと戦う", new_user_battle_url(monster.user), class: "mt-3 btn btn-primary"

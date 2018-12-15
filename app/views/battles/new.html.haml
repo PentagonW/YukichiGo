@@ -11,13 +11,12 @@
     .card
       .card-body
         - if @judge.winner == current_user
-          %h2.bg-success.text-white.p-3.win You Win!
+          %h2.bg-success.text-white.p-3.radius You Win!
         - else
-          %h2.bg-danger.text-white.p-3 You Lose...
+          %h2.bg-danger.text-white.p-3.radius You Lose...
 
         %h3.mt-2 勝者
         %p.font-weight-bold= @judge.winner.name
         %p= @judge.winner.main_monster.name
-
 
         = link_to "バトル履歴を見る", user_battles_path(current_user), class: "btn btn-primary"
