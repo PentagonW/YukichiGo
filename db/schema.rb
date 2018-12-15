@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 2018_12_15_090425) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "battles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "winner_id"
+    t.integer "loser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loser_id"], name: "index_battles_on_loser_id"
+    t.index ["user_id"], name: "index_battles_on_user_id"
+    t.index ["winner_id"], name: "index_battles_on_winner_id"
+  end
+
   create_table "monsters", force: :cascade do |t|
     t.string "serial_number", null: false
     t.integer "power", null: false

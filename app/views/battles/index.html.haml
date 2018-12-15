@@ -1,0 +1,10 @@
+%h1.m-3 バトル履歴
+.list-group
+  - @battles.each do |battle|
+    .list-group-item
+      %span
+        .ml-3 勝者
+        .mx-3= battle.winner.name
+        VS
+        .mx-3 敗者
+        = battle.loser.name

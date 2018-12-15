@@ -1,7 +1,7 @@
 class UserFactory
   attr_reader :name, :browser_id
 
-  def initialize(name: "ゲストのノグチ", browser_id:)
+  def initialize(name: "ゲストのユキチ", browser_id:)
     @name = name
     @browser_id = browser_id
   end

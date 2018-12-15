@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def browser_id
-    @browser_id ||= cookies["nogichi_go"] || generate_cookies
+    @browser_id ||= cookies["noguchi_go"] || generate_cookies
   end
 
   def current_user
@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   private
 
     def generate_cookies
-      cookies["nogichi_go"] = SecureRandom.uuid
+      cookies["noguchi_go"] = SecureRandom.uuid
     end
 end

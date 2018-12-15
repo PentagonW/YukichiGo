@@ -19,6 +19,8 @@
         %p バトル
       .menu-camera
         %i.fas.fa-camera
+        = link_to new_monster_path do
+          %p あたらしいノグチ
       .menu-monsters
         %i.fas.fa-money-bill
         = link_to user_path current_user.id do

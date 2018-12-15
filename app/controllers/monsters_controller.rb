@@ -4,7 +4,12 @@ class MonstersController < ApplicationController
   end
 
   def create
-    @moster_form = MonsterForm.new(form_params)
+    @moster_form = MonsterForm.new(form_params.merge(user_id: current_user.id))
+    if @moster_form.save
+      redirect_to user_path current_user.id
+    else
+      render :new
+    end
   end
 
   private
