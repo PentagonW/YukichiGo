@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   resources :monsters
   resources :battles, only: :index
   resources :users, only: [:show]
+
+  namespace :api do
+    namespace :v1 do
+      resources :main_monsters, only: :create
+    end
+  end
 end
