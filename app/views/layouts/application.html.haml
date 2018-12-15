@@ -14,28 +14,28 @@
     #flash
     = yield
     .menu
-      .menu-list 
+      .menu-list
         = link_to monsters_path do
           .menu-world
             %i.fas.fa-globe
-            %p 世界のノグチ
+            %p.mini 世界のノグチ
       .menu-list
         = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal", class: "js-menu-battle" do
           .menu-user
             %i.fas.fa-hand-rock
-            %p バトル
+            %p.mini バトル
       .menu-list
         = form_with(model: @monster_form, url: monsters_path, class: "js-monster-form", local: true) do |f|
           .menu-camera
             = f.label :file do
               %i.fas.fa-camera
-              %p add野口
+              %p.mini ノグチ追加
             = f.file_field :file, style: "display:none;", class: "js-file-input"
       .menu-list
         = link_to user_path current_user.id do
           .menu-monsters
             %i.fas.fa-users
-            %p ユーザー情報
+            %p.mini ユーザー情報
 
     -# modal
     - if current_user.main_monster
@@ -50,7 +50,7 @@
               .text-center= qrcode_tag new_user_battle_url(current_user), module_size: 5
             .modal-footer
               %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-  
+
 -# modal
 - current_user.monsters.each do |monster|
   .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "monster_#{monster.id}"}
