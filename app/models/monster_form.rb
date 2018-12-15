@@ -3,7 +3,7 @@ class MonsterForm
 
   DEFAULT_NAME = "のぐち"
 
-  attr_accessor :file, :detector, :user_id, :serial_number
+  attr_accessor :file, :detector, :user_id, :serial_number, :noguchi
 
   def save
     get_serial_number
@@ -12,7 +12,7 @@ class MonsterForm
     power = PowerCalculator.new(serial_number).power
 
     noguchi = Monster.new(name: DEFAULT_NAME, serial_number: serial_number, power: power, user_id: user_id)
-    noguchi.save
+    @noguchi = noguchi.save
 
     AddAdjective.new(noguchi).update_adjective
   end

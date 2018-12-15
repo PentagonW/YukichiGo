@@ -11,14 +11,14 @@ class MonstersController < ApplicationController
   def create
     @moster_form = MonsterForm.new(form_params.merge(user_id: current_user.id))
     if @moster_form.save
-      redirect_to user_path current_user.id
+      redirect_to complete_path @monster_form.noguchi.id
     else
       render :new
     end
   end
 
   def complete
-
+    @monster = Monster.find
   end
 
   def failure
