@@ -29,6 +29,10 @@ class TextDetector
     result["responses"].first["textAnnotations"].first["description"]
   end
 
+  def serial_number
+    text.split("\n")[2]
+  end
+
   def inline_text
     return unless text
 
