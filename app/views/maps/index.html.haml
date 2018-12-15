@@ -1,11 +1,51 @@
 .maps#map
 
 :javascript
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
-    });
+  // 場にいるモンスター
+  var monsters = []
+
+  function calculate() {
+    return Math.random() * ((0.01) - (-0.01)) + (-0.01);
   }
-%script{ src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCFCuIXvM1YHlPcZiILdOdaFDBCAhHF8gk&callback=initMap", async: :defer }
+
+  function createMonster(latitude, longitude) {
+    var latlng = new google.maps.LatLng(latitude + calculate(), longitude + calculate())
+    var marker = new google.maps.Marker({
+      map: map,
+      position: latlng,
+      icon: "#{image_url("yukichi_icon.png")}"
+    });
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(() => {
+      marker.setMap(null);
+      monsters.pop();
+    }, 30000);
+    return marker;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var latlng = new google.maps.LatLng(latitude, longitude)
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: latlng,
+      zoom: 16
+    });
+
+    var own = new google.maps.Marker({
+      map: map,
+      position: latlng,
+      icon: "#{image_url("yukichi_icon.png")}"
+    });
+
+    setInterval(() => {
+      if(monsters.length < 10) {
+        var monster = createMonster(latitude, longitude);
+        monsters.push(monster);
+      }
+    }, 3000)
+  }
+
+  navigator.geolocation.getCurrentPosition(success);
+%script{ src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCFCuIXvM1YHlPcZiILdOdaFDBCAhHF8gk" }
