@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :monsters do
     collection do
       get 'complete'
+      get 'failure'
     end
   end
 
