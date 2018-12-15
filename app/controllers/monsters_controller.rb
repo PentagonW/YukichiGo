@@ -13,7 +13,7 @@ class MonstersController < ApplicationController
     if @moster_form.save
       redirect_to complete_monsters_path(monster_id: @moster_form.noguchi.id)
     else
-      redirect_to failure_monsters_path
+      render :failure
     end
   end
 
