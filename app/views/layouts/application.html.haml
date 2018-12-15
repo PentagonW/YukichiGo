@@ -10,8 +10,9 @@
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application'
   %body
-    %nav.navbar.navbar-light.bg-light
-      = link_to "諭吉Go!", root_path, class: "navbar-brand text-warning"
+    %nav.navbar-light.bg-light.text-center.mt-1
+      = link_to root_path, class: "navbar-brand" do
+        = image_tag "logo.png", width: "80px"
     #flash
     - if flash[:success]
       .alert-success
