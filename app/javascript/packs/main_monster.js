@@ -8,7 +8,7 @@ $(() => {
     setTimeout(() => { flash_box.remove() }, 5000);
   }
 
-  $("#deside-monster").on("click", (e) => {
+  $(".js_deside-monster").on("click", (e) => {
     monster_id = e.target.value;
     $.ajax({
       url:'/api/v1/main_monsters',
