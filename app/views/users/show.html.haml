@@ -3,7 +3,7 @@
     %h3.title ユーザー情報
     .card
       .card-body
-        %p #{@user.name}
+        %p #{@user.name}(所持金: #{@user.money})
         = link_to 'ユキチ名変更', edit_user_path(@user), class: "btn btn-primary mr-3"
         = link_to 'バトル履歴', user_battles_path(@user), class: "btn btn-primary"
   %h3.title.mt-4 #{ @user.name }のノグチ一覧
