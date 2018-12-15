@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2018_12_15_065928) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "abilities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "monsters", force: :cascade do |t|
     t.string "serial_number", null: false
     t.integer "power", null: false
