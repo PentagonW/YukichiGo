@@ -29,6 +29,12 @@ class TextDetector
     result["responses"].first["textAnnotations"].first["description"]
   end
 
+  def labels
+    return if invalid?
+
+    result["responses"].first["labelAnnotations"].map {|annotation| annotation["description"] }
+  end
+
   def serial_number
     return if invalid?
 
@@ -62,10 +68,14 @@ class TextDetector
           image: {
             content: base64_image
           },
-          features: [
+          features: [{
             type: 'TEXT_DETECTION',
             maxResults: 5
-          ]
+          },
+          {
+            type: 'LABEL_DETECTION',
+            maxResults: 5
+          }]
         }]
       }.to_json
     end
