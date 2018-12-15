@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_052443) do
+ActiveRecord::Schema.define(version: 2018_12_15_065449) do
 
   create_table "monsters", force: :cascade do |t|
     t.string "serial_number", null: false
     t.integer "power", null: false
+    t.string "name"
   end
 
 end
