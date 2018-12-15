@@ -25,7 +25,12 @@
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} ×
         .modal-body
-          = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+          .monster
+            .monster-image
+              = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+            .monster-information
+              %div= monster.display_name
+              %div パワー : #{ monster.power }
         .modal-footer
           %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
           %button.btn.btn-primary.js_deside-monster{ value: monster.id } メインに決めた！
