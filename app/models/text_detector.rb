@@ -42,10 +42,8 @@ class TextDetector
     return if invalid?
 
     # シリアルナンバーが読み取れないことがあるので、読み取れない時は仕方なくランダムな文字列を返す
-    if text.gsub(" ", "").match(/[A-Z]{2}[\d]+[A-Z]/)
+    if text&.gsub(" ", "")&.match(/[A-Z]{2}[\d]+[A-Z]/)
       text.gsub(" ", "").match(/[A-Z]{2}[\d]+[A-Z]/)[0]
-    else
-      SecureRandom.alphanumeric(10)
     end
   end
 
