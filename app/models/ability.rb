@@ -3,6 +3,8 @@ class Ability < ApplicationRecord
 
   before_create :set_type
 
+  enum type: { attack: 0, defense: 1, throw: 2 }
+
   private
 
     def set_type

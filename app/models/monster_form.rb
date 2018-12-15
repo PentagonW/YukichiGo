@@ -21,6 +21,8 @@ class MonsterForm
 
   def noguchi
     @noguchi ||= Monster.new(name: DEFAULT_NAME, serial_number: serial_number, power: power, user_id: user_id)
+    @noguchi.build_ability
+    @noguchi.save
   end
 
   def power
