@@ -1,5 +1,12 @@
 .p-3
   %p.font-weight-bold 世界のノグチ達に挑戦しよう！
-  = render partial: 'monster', collection: @monsters
+  .btn.btn-primary.mb-3.js_strong-noguchi-button 最強のノグチ達に切り替え
+  .btn.btn-primary.mb-3.js_world-noguchi-button.d-none 世界のノグチ達に切り替え
 
-  = paginate @monsters
+  .js_world-noguchi
+    = render partial: 'monster', collection: @world_monsters
+
+    = paginate @world_monsters
+
+  .js_strong-noguchi.d-none
+    = render partial: 'monster', collection: @strong_monsters
