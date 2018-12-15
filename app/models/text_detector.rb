@@ -30,7 +30,7 @@ class TextDetector
   end
 
   def serial_number
-    text.split("\n")[2]
+    text.gsub(" ", "").match(/[A-Z]{2}[\d]+[A-Z]/)[0]
   end
 
   def inline_text
