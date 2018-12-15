@@ -19,4 +19,4 @@ class AddAdjective
     def ramdom_adjective_word
       AdjectiveWord.where( 'id >= ?', rand(AdjectiveWord.first.id..AdjectiveWord.last.id) ).first
     end
-  end
+end
