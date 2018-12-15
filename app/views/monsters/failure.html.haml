@@ -1,4 +1,10 @@
-%p 失敗しました。
-- if @moster_form.errors.full_messages.any?
-  - @moster_form.errors.full_messages.each do |message|
-    = message
+.p-3
+  .card
+    .card-body
+      .text-center
+        %h1.title \ Oops! /
+        = image_tag "aaa.png", width: "90%"
+        %p 「ちゃんとあげてくれたまえ。」
+      - if @moster_form.errors.full_messages.any?
+        - @moster_form.errors.full_messages.each do |message|
+          = message
