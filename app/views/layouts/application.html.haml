@@ -13,6 +13,9 @@
     %nav.navbar.navbar-light.bg-light
       = link_to "諭吉Go!", root_path, class: "navbar-brand text-warning"
     #flash
+    - if flash[:success]
+      .alert-success
+        %p= flash[:success]
     = yield
     .m-5
     .menu
