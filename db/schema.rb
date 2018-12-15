@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2018_12_15_124440) do
     t.integer "power", null: false
     t.string "name"
     t.integer "user_id", null: false
-    t.integer "created_at", null: false
-    t.integer "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

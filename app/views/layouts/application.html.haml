@@ -25,7 +25,7 @@
             %i.fas.fa-hand-rock
             %p バトル
       .menu-list
-        = form_with(model: @monster_form, url: monsters_path, class: "js-monster-form") do |f|
+        = form_with(model: @monster_form, url: monsters_path, class: "js-monster-form", local: true) do |f|
           .menu-camera
             = f.label :file do
               %i.fas.fa-camera
