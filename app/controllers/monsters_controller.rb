@@ -1,7 +1,7 @@
 class MonstersController < ApplicationController
   def index
     users = User.all
-    @monsters = Monster.where(id: users.map(&:main_monster_id)).includes(:user)
+    @monsters = Monster.where(id: users.map(&:main_monster_id)).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
