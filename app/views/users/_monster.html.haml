@@ -1,9 +1,11 @@
+- is_main = (monster == current_user.main_monster)
 .card.mb-1
   .card-body
-    .monster
-      .monster-image
-        = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+    = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
+      .monster
+        .monster-image
+          = image_tag "yukichi.png", class: "rounded-circle #{is_main ? 'monster-select' : nil} js-select-monster js-monster-#{monster.id}", width: "100px"
 
-      .monster-information
-        %div= monster.display_name
-        %div パワー : #{ monster.power }
+        .monster-information
+          %div= monster.display_name
+          %div パワー : #{ monster.power }
