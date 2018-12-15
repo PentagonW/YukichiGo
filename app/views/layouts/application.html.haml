@@ -25,13 +25,6 @@
             %i.fas.fa-hand-rock
             %p.mini バトル
       .menu-list
-        = form_with(model: @monster_form, url: monsters_path, class: "js-monster-form", local: true) do |f|
-          .menu-camera
-            = f.label :file do
-              %i.fas.fa-camera
-              %p.mini ノグチ追加
-            = f.file_field :file, style: "display:none;", class: "js-file-input"
-      .menu-list
         = link_to user_path current_user.id do
           .menu-monsters
             %i.fas.fa-users
@@ -50,6 +43,13 @@
               .text-center= qrcode_tag new_user_battle_url(current_user), module_size: 5
             .modal-footer
               %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+
+-# のぐち追加ボタン
+= form_with(model: @monster_form, url: monsters_path, class: "js-monster-form menu-new-noguchi", local: true) do |f|
+  = f.label :file, class: "mt-3 white" do
+    %i.fas.fa-camera
+    %p.mini ノグチ追加
+  = f.file_field :file, style: "display:none;", class: "js-file-input"
 
 -# modal
 - current_user.monsters.each do |monster|
