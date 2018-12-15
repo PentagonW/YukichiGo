@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml-rails'
 gem 'rails-ujs'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 group :production do
   gem 'pg'
