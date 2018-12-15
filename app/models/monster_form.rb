@@ -44,10 +44,10 @@ class MonsterForm
   end
 
   def unique_serial_number
-    errors.add(:serial_number, :taken) if Monster.exists?(serial_number: serial_number)
+    errors.add(:noguchi, :taken) if Monster.exists?(serial_number: serial_number)
   end
 
   def include_money_image
-    errors.add(:file, :invalid) unless labels & %w(money currency cash)
+    errors.add(:base, :not_money) unless labels & %w(money currency cash)
   end
 end

@@ -6,3 +6,16 @@ ja:
           attack: 攻撃
           defense: 防御
           throw: 投げ
+  activemodel:
+    attributes:
+      monster_form:
+        serial_number: シリアルナンバー
+        noguchi: ノグチ
+    errors:
+      models:
+        monster_form:
+          attributes:
+            serial_number:
+              blank: を認識できませんでした
+            base:
+              not_money: お金を認識できませんでした
