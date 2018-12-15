@@ -13,7 +13,7 @@ class PowerCalculator < ApplicationRecord
 
   private
 
-    def moster
+    def monster
       Monster.find_by(serial_number: serial_number)
     end
 end
