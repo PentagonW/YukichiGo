@@ -22,13 +22,15 @@
         .menu-user
           %i.fas.fa-hand-rock
           %p バトル
-      = link_to new_monster_path, style: "width: 25%" do
-        .menu-camera
-          %i.fas.fa-camera
-          %p あたらしいノグチ
-      = link_to user_path(current_user.id), style: "width: 25%" do
-        .menu-monsters
-          %i.fas.fa-money-bill
+      .menu-camera
+        = form_with(model: @monster_form, url: monsters_path, class: "js-monster-form") do |f|
+          = f.label :file do
+            %i.fas.fa-camera
+            %p add野口
+          = f.file_field :file, style: "display:none;", class: "js-file-input"
+      .menu-monsters
+        %i.fas.fa-money-bill
+        = link_to user_path current_user.id do
           %p モンスター一覧
 
     -# modal
