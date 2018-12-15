@@ -1,4 +1,4 @@
-class PowerCalculator < ApplicationRecord
+class PowerCalculator
   attr_reader :serial_number
 
   def initialize(serial_number)
