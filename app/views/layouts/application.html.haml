@@ -20,7 +20,7 @@
             %i.fas.fa-globe-asia
             %p 世界のノグチ
       .menu-list
-        = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal" do
+        = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal", class: "js-menu-battle" do
           .menu-user
             %i.fas.fa-hand-rock
             %p バトル
@@ -39,7 +39,7 @@
 
     -# modal
     - if current_user.main_monster
-      .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "main_monster"}
+      .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "main_monster", class: ".js-main_monster"}
         .modal-dialog{:role => "document"}
           .modal-content
             .modal-header
