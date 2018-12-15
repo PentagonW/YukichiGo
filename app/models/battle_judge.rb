@@ -1,20 +1,41 @@
 class BattleJudge
-  attr_reader :right_monster, :left_monster
+  include ActiveModel::Model
 
-  def initialize(right_monster, left_monster)
-    @right_monster = right_monster
-    @left_monster = left_monster
+  attr_accessor :users, :winner, :loser
+
+  validates :monsters, length: { is: 2 }
+  validate :with_main_monster?
+
+  def battle
+    return if invalid?
+
+    scores = monsters.map {|monster| [monster.power + chance, monster.user] }.to_h
+    self.winner = scores[scores.keys.max]
+    self.loser = scores[scores.keys.min]
   end
 
-  def winner
-    return right_monster if right_monster.power > left_monster.power
+  def save
+    return if invalid?
 
-    left_monster
+    battle
+    Battle.create winner: winner, loser: loser
   end
 
-  def loser
-    return left_monster unless winner == right_monster
-
-    right_monster
+  def monsters
+    @monsters ||= users.map &:main_monster
   end
+
+  def chance
+    Random.rand * (powers.first - powers.last).abs * 0.1
+  end
+
+  private
+
+    def with_main_monster?
+      errors.add(:users, :invalid) unless monsters.all?
+    end
+
+    def powers
+      monsters.map &:power
+    end
 end

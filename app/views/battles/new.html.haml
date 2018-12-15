@@ -1,1 +1,9 @@
 %h1.m-3 バトル
+
+= image_tag "yukichi.png", width: '40%', class: "active-noguchi"
+= image_tag "yukichi.png", class: "active-noguchi", width: '40%'
+
+.battle-winner
+  %h2 勝者
+  = @judge.winner.name
+  = @judge.winner.main_monster.name

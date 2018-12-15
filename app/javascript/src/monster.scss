@@ -4,12 +4,22 @@
   &-image {
     margin-right: 10px;
   }
-
-  &-information {
-
-  }
-
+  
   &-select {
     border: solid 1px red;
   }
+}
+
+.complete {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.complete-image {
+  position: relative;
+  top: -50px;
+}
+
+.big {
+  font-size: 65px;
 }

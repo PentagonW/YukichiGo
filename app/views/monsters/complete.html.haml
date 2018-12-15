@@ -1,0 +1,19 @@
+.m-3.mt-5
+  .card
+    .card-body.pb-4
+      .complete-image.text-center
+        = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+
+      .font-weight-bold.text-center
+        新しいのぐちの登録
+      .pd-1
+        .small.text-center.text-muted
+          #{@monster.created_at.strftime('%Y年%m月%d日 %H時%M分')}
+      .mt-3
+        .text-center
+          .font-weight-bold のぐちのパワー
+          %h1.big #{ @monster.power }
+      .mt-4
+        .text-center
+          .font-weight-bold
+            #{ @monster.name}
