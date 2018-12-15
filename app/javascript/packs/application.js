@@ -14,6 +14,8 @@ import faRegular from '@fortawesome/fontawesome-free-regular'
 import faBrands from '@fortawesome/fontawesome-free-brands'
 import 'src/application'
 
+import 'packs/active_noguchi'
+
 fontawesome.library.add(faSolid, faRegular, faBrands)
 fontawesome.dom.i2svg()
 
