@@ -1,4 +1,9 @@
 class MonstersController < ApplicationController
+  def index
+    users = User.all
+    @monsters = Monster.where(id: users.map(&:main_monster_id)).includes(:user)
+  end
+
   def new
     @moster_form = MonsterForm.new
   end
