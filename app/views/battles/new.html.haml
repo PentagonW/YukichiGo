@@ -9,7 +9,7 @@
     %p.font-weight-bold= @judge.winner.name
     %p= @judge.winner.main_monster.name
 
-    - if @judge.winner.name == current_user.name
+    - if @judge.winner == current_user
       %p.bg-success.text-white.p-3 YouWin!
     - else
       %p.bg-danger.text-white.p-3 You Lose...
