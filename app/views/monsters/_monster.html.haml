@@ -1,4 +1,11 @@
-%div #{ monster.user.name }さんのノグチ
+.card
+  .card-body
+    .monster
+      .monster-image
+        = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
 
-%div= monster.display_name
-%div パワー : #{ monster.power }
+      .monster-information
+        .mb-1 #{ monster.user.name }さんのノグチ
+
+        %div= monster.display_name
+        %div パワー : #{ monster.power }

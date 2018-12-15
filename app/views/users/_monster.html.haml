@@ -1,3 +1,9 @@
-%p
-  = monster.display_name
-  = monster.power
+.card
+  .card-body
+    .monster
+      .monster-image
+        = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+
+      .monster-information
+        %div= monster.display_name
+        %div パワー : #{ monster.power }
