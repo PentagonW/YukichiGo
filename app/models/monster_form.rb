@@ -48,6 +48,6 @@ class MonsterForm
   end
 
   def include_money_image
-    errors.add(:file, :invalid) unless labels&.include? 'money'
+    errors.add(:file, :invalid) unless labels & %w(money currency cash)
   end
 end
