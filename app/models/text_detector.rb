@@ -30,7 +30,8 @@ class TextDetector
   end
 
   def serial_number
-    text.gsub(" ", "").match(/[A-Z]{2}[\d]+[A-Z]/)[0]
+    # シリアルナンバーが読み取れないことがあるので、読み取れない時は仕方なくランダムな文字列を返す
+    text.gsub(" ", "").match(/[A-Z]{2}[\d]+[A-Z]/)? [0] : SecureRandom.alphanumeric(10)
   end
 
   def inline_text
