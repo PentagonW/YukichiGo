@@ -12,5 +12,3 @@
         %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
         - if monster.user != current_user
           = link_to "こいつと戦う", new_user_battle_url(monster.user), class: "btn btn-primary"
-        - else
-          = link_to "バイバイする", monster_path(monster), method: :delete, class: "btn btn-danger"
