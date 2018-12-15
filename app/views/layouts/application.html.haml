@@ -14,24 +14,28 @@
     #flash
     = yield
     .menu
-      = link_to monsters_path, style: "width: 25%" do
-        .menu-world
-          %i.fas.fa-globe-asia
-          %p 世界のノグチ
-      = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal", style: "width: 25%" do
-        .menu-user
-          %i.fas.fa-hand-rock
-          %p バトル
-      .menu-camera
+      .menu-list 
+        = link_to monsters_path do
+          .menu-world
+            %i.fas.fa-globe-asia
+            %p 世界のノグチ
+      .menu-list
+        = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal" do
+          .menu-user
+            %i.fas.fa-hand-rock
+            %p バトル
+      .menu-list
         = form_with(model: @monster_form, url: monsters_path, class: "js-monster-form") do |f|
-          = f.label :file do
-            %i.fas.fa-camera
-            %p add野口
-          = f.file_field :file, style: "display:none;", class: "js-file-input"
-      .menu-monsters
-        %i.fas.fa-money-bill
+          .menu-camera
+            = f.label :file do
+              %i.fas.fa-camera
+              %p add野口
+            = f.file_field :file, style: "display:none;", class: "js-file-input"
+      .menu-list
         = link_to user_path current_user.id do
-          %p モンスター一覧
+          .menu-monsters
+            %i.fas.fa-money-bill
+            %p モンスター一覧
 
     -# modal
     - if current_user.main_monster
