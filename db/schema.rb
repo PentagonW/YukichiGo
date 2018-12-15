@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_065928) do
+ActiveRecord::Schema.define(version: 2018_12_15_072249) do
 
   create_table "adjective_words", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2018_12_15_065928) do
     t.string "serial_number", null: false
     t.integer "power", null: false
     t.string "name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "browser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
