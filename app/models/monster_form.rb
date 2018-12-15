@@ -8,7 +8,11 @@ class MonsterForm
   def save
     begin
       get_serial_number
-      return false if Monster.find_by(serial_number: serial_number)
+
+      if Monster.find_by(serial_number: serial_number)
+        flash[:error] = "既にいるのぐちです。"
+        return false
+      end
 
       power = PowerCalculator.new(serial_number).power
 
