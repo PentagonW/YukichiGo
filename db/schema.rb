@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_124440) do
+ActiveRecord::Schema.define(version: 2018_12_15_142449) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "monster_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_15_124440) do
     t.integer "special"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "class_type"
   end
 
   create_table "adjective_words", force: :cascade do |t|

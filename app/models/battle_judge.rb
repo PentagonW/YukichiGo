@@ -9,7 +9,9 @@ class BattleJudge
   def battle
     return if invalid?
 
-    scores = monsters.map {|monster| [monster.power + chance, monster.user] }.to_h
+    trilemma(monsters.first, monsters.last)
+    scores = monsters.map {|monster| [monster_power(monster), monster.user] }.to_h
+
     self.winner = scores[scores.keys.max]
     self.loser = scores[scores.keys.min]
   end
@@ -37,5 +39,23 @@ class BattleJudge
 
     def powers
       monsters.map &:power
+    end
+
+    def monster_power(monster)
+      monster.power + chance
+    end
+
+    def trilemma(monster1, monster2)
+      monster1.build_ability.save unless monster1.class_type
+      monster2.build_ability.save unless monster2.class_type
+
+      if (monster1.class_type == 0 && monster2.class_type == 1) || (monster1.class_type == 1 && monster2.class_type == 2) || (monster1.class_type == 2 && monster2.class_type == 0)
+        monster1.power *= 0.9
+        monster2.power *= 1.1
+      elsif (monster1.class_type == 1 && monster2.class_type == 0) || (monster1.class_type == 2 && monster2.class_type == 1) || (monster1.class_type == 0 && monster2.class_type == 2)
+        monster1.power *= 1.1
+        monster2.power *= 0.9
+      end
+      [monster1, monster2]
     end
 end

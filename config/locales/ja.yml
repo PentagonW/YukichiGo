@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    enum:
+      ability:
+        class_type:
+          attack: 攻撃
+          defense: 防御
+          throw: 投げ

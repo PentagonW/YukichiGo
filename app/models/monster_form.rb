@@ -11,6 +11,7 @@ class MonsterForm
   def save
     return false if invalid?
 
+    noguchi.build_ability(class_type: rand(3))
     noguchi.save!
     user.update! main_monster: noguchi unless user.main_monster
     AddAdjective.new(noguchi).update_adjective
