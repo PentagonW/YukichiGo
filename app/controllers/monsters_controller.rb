@@ -17,6 +17,13 @@ class MonstersController < ApplicationController
     end
   end
 
+  def destroy
+    @monster = Monster.find(params[:id])
+    @monster.destroy!
+    flash[:success] = "ノグチとバイバイしました"
+    redirect_to user_path current_user
+  end
+
   def complete
     @monster = Monster.find params[:monster_id]
   end
