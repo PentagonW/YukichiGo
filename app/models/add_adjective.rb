@@ -17,6 +17,8 @@ class AddAdjective
   private
 
     def ramdom_adjective_word
+      return 'みんなの' if AdjectiveWord.nil?
+
       AdjectiveWord.where( 'id >= ?', rand(AdjectiveWord.first.id..AdjectiveWord.last.id) ).first
     end
 end
