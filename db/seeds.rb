@@ -1,3 +1,4 @@
+AdjectiveWord.delete_all
 AdjectiveWord.create(name: "かっこいい", power: 45)
 AdjectiveWord.create(name: "ちょっと足の速い", power: 30)
 AdjectiveWord.create(name: "髪の毛の多い", power: 10)
