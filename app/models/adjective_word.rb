@@ -1,0 +1,2 @@
+class AdjectiveWord < ApplicationRecord
+end
