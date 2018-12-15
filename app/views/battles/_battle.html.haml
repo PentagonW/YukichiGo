@@ -1,9 +1,9 @@
-- if battles.blank?
-  %span まだバトルがないゾ
-- else
-  - battles.each do |battle|
-    .list-group
+- battles.each do |battle|
+  .card.mb-3
+    .card-body
+      = image_tag "aaa.png", height: "30"
       %span
         %span.font-weight-bold.text-primary= battle.winner.name
         VS
         = battle.loser.name
+      = image_tag "aaa.png", height: "30"
