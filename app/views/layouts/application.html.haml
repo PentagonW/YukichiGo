@@ -67,6 +67,7 @@
             .monster-information
               %div= monster.display_name
               %div パワー : #{ monster.power }
+              %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
         .modal-footer
           %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
           %button.btn.btn-primary.js_deside-monster{ value: monster.id } メインに決めた！

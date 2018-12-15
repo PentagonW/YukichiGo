@@ -11,6 +11,7 @@ class MonsterForm
   def save
     return false if invalid?
 
+    noguchi.build_ability(class_type: rand(3))
     noguchi.save!
     user.update! main_monster: noguchi unless user.main_monster
     AddAdjective.new(noguchi).update_adjective
@@ -21,8 +22,6 @@ class MonsterForm
 
   def noguchi
     @noguchi ||= Monster.new(name: DEFAULT_NAME, serial_number: serial_number, power: power, user_id: user_id)
-    @noguchi.build_ability
-    @noguchi.save
   end
 
   def power
