@@ -18,7 +18,7 @@ class BattleJudge
     return if invalid?
 
     battle
-    Battle.new winner: winner, loser: loser
+    Battle.create winner: winner, loser: loser
   end
 
   def monsters
