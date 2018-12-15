@@ -1,7 +1,7 @@
 class BattlesController < ApplicationController
   def index
-    @win_battles = current_user.monsters&.find(params[:monster_id])&.win_battles
-    @lose_battles = current_user.monsters&.find(params[:monster_id])&.lose_battles
+    @win_battles = current_user.win_battles
+    @lose_battles = current_user.lose_battles
   end
 
   def new
