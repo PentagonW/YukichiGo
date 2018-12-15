@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :maps, only: :index
   resources :users, only: [:show, :edit, :update] do
     resources :battles, only: [:index, :new]
   end
