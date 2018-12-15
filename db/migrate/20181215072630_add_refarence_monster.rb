@@ -3,8 +3,8 @@ class AddRefarenceMonster < ActiveRecord::Migration[5.2]
     add_column :monsters, :user_id, :integer
     change_column :monsters, :user_id, :integer, null: false
     add_column :monsters, :created_at, :datetime
-    change_column :monsters, :created_at, :integer, null: false
+    change_column :monsters, :created_at, :datetime, null: false
     add_column :monsters, :updated_at, :datetime
-    change_column :monsters, :updated_at, :integer, null: false
+    change_column :monsters, :updated_at, :datetime, null: false
   end
 end
