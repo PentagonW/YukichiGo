@@ -19,8 +19,8 @@ class MonstersController < ApplicationController
 
   def destroy
     @monster = Monster.find(params[:id])
-    money_history = current_user.money_histories.build(price: MoneyHistory.BYE_MONSTER)
-    if current_user.money_in_hand > MoneyHistory.BYE_MONSTER && money_history.save
+    money_history = current_user.money_histories.build(price: MoneyHistory::BYE_MONSTER)
+    if current_user.money_in_hand > MoneyHistory::BYE_MONSTER && money_history.save
       @monster.destroy!
       flash[:success] = "ノグチとバイバイしました"
       redirect_to user_path current_user
