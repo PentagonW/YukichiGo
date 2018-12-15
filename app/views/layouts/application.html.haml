@@ -12,16 +12,6 @@
     %nav.navbar.navbar-light.bg-light
       = link_to "諭吉Go!", root_path, class: "navbar-brand"
     #flash
-    .mt-2.p-2
-      - if current_user.monsters.any? && current_user.main_monster.nil?
-        .card
-          .card-body
-            %p.js_new-text
-              メインモンスターを設定していません。バトルをするために設定しましょう！
-              アイコンをクリックすると設定できるよ！
-            - current_user.monsters.each do |monster|
-              = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
-                = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
     = yield
     .menu
       .menu-list 
@@ -44,8 +34,8 @@
       .menu-list
         = link_to user_path current_user.id do
           .menu-monsters
-            %i.fas.fa-money-bill
-            %p モンスター一覧
+            %i.fas.fa-users
+            %p ユーザー情報
 
     -# modal
     - if current_user.main_monster
