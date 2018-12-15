@@ -21,7 +21,7 @@ class MonsterForm
 
     AddAdjective.new(noguchi).update_adjective
     true
-  rescue
+  rescue ActiveRecord::RecordInvalid、ActiveRecord::RecordNotSaved
     false
   end
 
