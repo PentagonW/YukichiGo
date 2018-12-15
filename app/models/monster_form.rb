@@ -7,6 +7,9 @@ class MonsterForm
 
   validates :serial_number, presence: true
   validate :unique_serial_number
+  validate :include_money_image
+
+  delegate :serial_number, :labels, to: :detector, allow_nil: true
 
   def save
     return false if invalid?
@@ -28,19 +31,23 @@ class MonsterForm
     PowerCalculator.new(serial_number).power
   end
 
-  def serial_number
-    return @serial_number if @serial_number
-
-    detector = TextDetector.new(file: file)
-    detector.detect
-    @serial_number = detector.serial_number
-  end
-
   def user
     @user ||= User.find user_id
   end
 
+  def detector
+    return @detector if @detector
+
+    @detector = TextDetector.new(file: file)
+    @detector.detect
+    return @detector
+  end
+
   def unique_serial_number
     errors.add(:serial_number, :taken) if Monster.exists?(serial_number: serial_number)
+  end
+
+  def include_money_image
+    errors.add(:file, :invalid) unless labels.include? 'money'
   end
 end
