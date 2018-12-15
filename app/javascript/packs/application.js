@@ -17,3 +17,7 @@ import 'src/application'
 fontawesome.library.add(faSolid, faRegular, faBrands)
 fontawesome.dom.i2svg()
 
+import Rails from 'rails-ujs';
+Rails.start();
+
+import 'packs/main_monster'
