@@ -25,8 +25,11 @@ class TextDetector
 
   def text
     return if invalid?
+    return unless temp = result["responses"].first
+    return unless temp = temp["textAnnotations"]
+    return unless temp = temp.first
 
-    result["responses"].first["textAnnotations"].first["description"]
+    temp["description"]
   end
 
   def labels
