@@ -13,10 +13,6 @@
     %nav.navbar-light.bg-light.text-center.pt-1.pb-1
       = link_to root_path, class: "navbar-brand" do
         = image_tag "logo.png", width: "80px"
-    #flash
-    - if flash[:success]
-      .alert-success
-        %p= flash[:success]
 
     .menu
       .menu-list
@@ -34,6 +30,11 @@
           .menu-monsters
             %i.fas.fa-users
             %p.mini ユーザー情報
+
+    #flash
+      - if flash[:success]
+        .alert-success
+          %p= flash[:success]
 
     = yield
 
@@ -81,5 +82,5 @@
               %div パワー : #{ monster.power }
               %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
         .modal-footer
-          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary.js_deside-monster{ value: monster.id } 君がメインだ！
+          %button.btn.btn-secondary.fontM{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary.js_deside-monster.fontM{ value: monster.id } 君がメインだ！

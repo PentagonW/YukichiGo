@@ -11,4 +11,4 @@
             %div= monster.display_name
             %div パワー : #{ monster.power }
             %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
-            = link_to "バイバイする", monster_path(monster), method: :delete, class: "btn btn-danger btn-sm mt-3", data: { confirm: '本当にこのノグチとバイバイしますか？(10ヒデコイン必要です)' }
+            = link_to "バイバイする", monster_path(monster), method: :delete, class: "btn btn-danger fontM mt-3", data: { confirm: '本当にこのノグチとバイバイしますか？(10ヒデコイン必要です)' }
