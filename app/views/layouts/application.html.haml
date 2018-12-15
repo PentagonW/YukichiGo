@@ -34,8 +34,8 @@
       .menu-list
         = link_to user_path current_user.id do
           .menu-monsters
-            %i.fas.fa-money-bill
-            %p モンスター一覧
+            %i.fas.fa-users
+            %p ユーザー情報
 
     -# modal
     - if current_user.main_monster
@@ -50,3 +50,18 @@
               .text-center= qrcode_tag new_battle_url(user_id: current_user.id), module_size: 5
             .modal-footer
               %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+  
+-# main modal
+- current_user.monsters.each do |monster|
+  .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "monster_#{monster.id}"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %h5.modal-title= monster.name
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+        .modal-footer
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary.js_deside-monster{ value: monster.id } メインに決めた！
