@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_065928) do
-
-  create_table "adjective_words", force: :cascade do |t|
-    t.string "name"
-    t.integer "power"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2018_12_15_072630) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "monster_id"
@@ -30,10 +23,27 @@ ActiveRecord::Schema.define(version: 2018_12_15_065928) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "adjective_words", force: :cascade do |t|
+    t.string "name"
+    t.integer "power"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "monsters", force: :cascade do |t|
     t.string "serial_number", null: false
     t.integer "power", null: false
     t.string "name"
+    t.integer "user_id", null: false
+    t.integer "created_at", null: false
+    t.integer "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "browser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
