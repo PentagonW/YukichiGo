@@ -6,10 +6,12 @@ class BattleJudge
   validates :monsters, length: { is: 2 }
   validate :with_main_monster?
 
+  TRILEMMA = { 0 => 2, 1 => 0, 2 => 1 }.freeze
+
   def battle
     return if invalid?
 
-    trilemma(monsters.first, monsters.last)
+    trilemma
     scores = monsters.map {|monster| [monster_power(monster), monster.user] }.to_h
 
     self.winner = scores[scores.keys.max]
@@ -45,17 +47,18 @@ class BattleJudge
       monster.power + chance
     end
 
-    def trilemma(monster1, monster2)
-      monster1.build_ability.save unless monster1.class_type
-      monster2.build_ability.save unless monster2.class_type
-
-      if (monster1.class_type == 0 && monster2.class_type == 1) || (monster1.class_type == 1 && monster2.class_type == 2) || (monster1.class_type == 2 && monster2.class_type == 0)
-        monster1.power *= 0.9
-        monster2.power *= 1.1
-      elsif (monster1.class_type == 1 && monster2.class_type == 0) || (monster1.class_type == 2 && monster2.class_type == 1) || (monster1.class_type == 0 && monster2.class_type == 2)
-        monster1.power *= 1.1
-        monster2.power *= 0.9
+    def trilemma
+      monsters.each do |monster|
+        monster.build_ability.save unless monster.class_type
       end
-      [monster1, monster2]
+
+      if TRILEMMA[monsters.first.class_type] == monsters.last.class_type
+        monsters.first.power *= 1.2
+        monsters.last.power *= 0.8
+      end
+      if TRILEMMA[monsters.last.class_type] == monsters.first.class_type
+        monsters.first.power *= 0.8
+        monsters.last.power *= 1.2
+      end
     end
 end
