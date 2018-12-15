@@ -6,5 +6,6 @@
         = image_tag "aaa.png", width: "90%"
         %p 「ちゃんとあげてくれたまえ。」
       - if @moster_form.errors.full_messages.any?
-        - @moster_form.errors.full_messages.each do |message|
-          = message
+        .alert-danger.p-2
+          - @moster_form.errors.full_messages.each do |message|
+            .p-2= message
