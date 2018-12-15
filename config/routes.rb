@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: "monsters#new"
+  root to: "home#index"
   resources :monsters
 end
