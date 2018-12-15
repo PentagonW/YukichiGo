@@ -1,1 +1,7 @@
 %h1 Hello World!
+
+= form_with(model: @monster_form, url: monsters_path) do |form|
+
+  = form.file_field :file
+
+  = form.submit "Post"
