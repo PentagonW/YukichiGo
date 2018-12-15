@@ -1,7 +1,8 @@
 .p-3
-  %p.font-weight-bold 世界のノグチ達に挑戦しよう！
-  .btn.btn-primary.mb-3.js_strong-noguchi-button 最強のノグチ達に切り替え
-  .btn.btn-primary.mb-3.js_world-noguchi-button.d-none 世界のノグチ達に切り替え
+  .d-flex
+    %p.font-weight-bold 世界のノグチ達に挑戦しよう！
+    .btn.btn-outline-secondary.mb-3.js_strong-noguchi-button.fontM.ml-auto パワー順に変更
+    .btn.btn-outline-secondary.mb-3.js_world-noguchi-button.d-none.fontM.ml-auto 新着順に変更
 
   .js_world-noguchi
     = render partial: 'monster', collection: @world_monsters

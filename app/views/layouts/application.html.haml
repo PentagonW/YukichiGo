@@ -17,8 +17,7 @@
     - if flash[:success]
       .alert-success
         %p= flash[:success]
-    = yield
-    .m-5
+
     .menu
       .menu-list
         = link_to monsters_path do
@@ -35,6 +34,8 @@
           .menu-monsters
             %i.fas.fa-users
             %p.mini ユーザー情報
+
+    = yield
 
     -# modal
     - if current_user.main_monster
