@@ -1,0 +1,6 @@
+.mt-2.p-2
+  - if current_user.main_monster.nil?
+    .card
+      .card-body
+        %p メインモンスターを設定していません。
+  - else

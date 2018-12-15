@@ -10,7 +10,7 @@
     = stylesheet_pack_tag 'application'
   %body
     %nav.navbar.navbar-light.bg-light
-      %a.navbar-brand{:href => "#"} Navbar
+      = link_to "諭吉Go!", root_path, class: "navbar-brand"
     = yield
     .menu
       .menu-user

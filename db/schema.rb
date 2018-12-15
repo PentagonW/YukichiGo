@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_072630) do
+ActiveRecord::Schema.define(version: 2018_12_15_090425) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "monster_id"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2018_12_15_072630) do
     t.integer "power", null: false
     t.string "name"
     t.integer "user_id", null: false
-    t.integer "created_at", null: false
-    t.integer "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_12_15_072630) do
     t.string "browser_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "main_monster_id"
   end
 
 end
