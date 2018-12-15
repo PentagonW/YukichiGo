@@ -10,7 +10,7 @@
     = stylesheet_pack_tag 'application'
   %body
     %nav.navbar.navbar-light.bg-light
-      = link_to "諭吉Go!", root_path, class: "navbar-brand"
+      = link_to "諭吉Go!", root_path, class: "navbar-brand text-warning"
     #flash
     = yield
     .m-5
@@ -76,4 +76,4 @@
               %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
         .modal-footer
           %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary.js_deside-monster{ value: monster.id } メインに決めた！
+          %button.btn.btn-primary.js_deside-monster{ value: monster.id } 君がメインだ！

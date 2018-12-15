@@ -1,5 +1,6 @@
-%h3.m-3 バトル履歴
-
+.m-3
+  %h2.d-inline バトル履歴
+  %span（勝率 #{(@win_battles&.count.to_f / (@win_battles&.count.to_f + @lose_battles&.count.to_f) * 100).round}%）
 %ul.nav.nav-pills.mb-3#pills-tab{ role: "'tablist" }
   %li.nav-item.ml-3
     %a.nav-link.active#pills-win-tab{ data: { toggle: "pill" }, href: "#pills-win", role: "tab", aria: { controls: "pills-win", selected: "true" } } WIN
