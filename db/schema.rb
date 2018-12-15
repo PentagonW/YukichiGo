@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_15_142449) do
     t.integer "special"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type"
+    t.integer "class_type"
   end
 
   create_table "adjective_words", force: :cascade do |t|
