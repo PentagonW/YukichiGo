@@ -1,8 +1,8 @@
 .mt-2.p-2
-  %h1 ユキチ名変更
+  %p.font-weight-bold ユキチ名変更
 
   = form_with(model: @user, url: user_path, method: :patch, local: true) do |form|
     .form-group
       = form.text_field :name, class: "form-control"
 
-    = form.submit "更新", class: "btn btn-primary btn-lg btn-block"
+    = form.submit "更新", class: "btn btn-primary btn-lg btn-block fontM"

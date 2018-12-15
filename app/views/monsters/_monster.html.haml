@@ -1,4 +1,4 @@
-.card.mb-3
+.card.mb-2
   .card-body
     .monster
       .monster-image
@@ -13,4 +13,4 @@
           %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
           %div 勝率: #{ monster.user.battle_rate.round }%
         - if monster.user != current_user
-          = link_to "このノグチと戦う", new_user_battle_url(monster.user), class: "mt-3 btn btn-primary"
+          = link_to "このノグチと戦う", new_user_battle_url(monster.user), class: "mt-3 btn btn-primary fontM"
