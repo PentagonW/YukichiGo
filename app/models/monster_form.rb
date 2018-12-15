@@ -5,27 +5,31 @@ class MonsterForm
 
   attr_accessor :file, :detector, :user_id, :serial_number, :noguchi
 
+  validates :serial_number, presence: true
+  validate :unique_serial_number
+
   def save
-    get_serial_number
+    return false if invalid?
 
-    if Monster.find_by(serial_number: serial_number)
-      flash[:error] = "既にいるのぐちです。"
-      return false
-    end
-
-    power = PowerCalculator.new(serial_number).power
-
-    @noguchi = Monster.new(name: DEFAULT_NAME, serial_number: serial_number, power: power, user_id: user_id)
-    @noguchi.save
-    user.update! main_monster: @noguchi
-
+    noguchi.save!
+    user.update! main_monster: noguchi unless user.main_monster
     AddAdjective.new(noguchi).update_adjective
     true
-  rescue
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
     false
   end
 
-  def get_serial_number
+  def noguchi
+    @noguchi ||= Monster.new(name: DEFAULT_NAME, serial_number: serial_number, power: power, user_id: user_id)
+  end
+
+  def power
+    PowerCalculator.new(serial_number).power
+  end
+
+  def serial_number
+    return @serial_number if @serial_number
+
     detector = TextDetector.new(file: file)
     detector.detect
     @serial_number = detector.serial_number
@@ -33,5 +37,9 @@ class MonsterForm
 
   def user
     @user ||= User.find user_id
+  end
+
+  def unique_serial_number
+    errors.add(:serial_number, :taken) if Monster.exists?(serial_number: serial_number)
   end
 end
