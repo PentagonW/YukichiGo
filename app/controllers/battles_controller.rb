@@ -1,6 +1,6 @@
 class BattlesController < ApplicationController
   def index
-j   @win_battles = current_user.win_battles
+    @win_battles = current_user.win_battles
     @lose_battles = current_user.lose_battles
   end
 
