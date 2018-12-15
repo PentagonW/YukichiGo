@@ -7,31 +7,6 @@
         %p あなたの名前 : #{@user.name}
         = link_to 'ユキチ名変更', edit_user_path(@user), class: "btn btn-primary"
         = link_to 'バトル履歴', user_battles_path(@user), class: "btn btn-information"
-  .mb-2
-    - if current_user.main_monster.nil?
-      .card
-        .card-body
-          %h2.title メインのノグチを選ぶ
-          %p.js_new-text
-            メインモンスターを設定していません。バトルをするために設定しましょう！
-            %br *アイコンをクリックすると設定画面が開きます
-          - current_user.monsters.each do |monster|
-            = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
-              = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
-    - else
-      .card
-        .card-body
-          %h2.title メインのノグチを選ぶ
-          %p
-            メインモンスターを変更する
-            %br *アイコンをクリックすると設定画面が開きます
-          - current_user.monsters.each do |monster|
-            - is_main = (monster == current_user.main_monster)
-            = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
-              - if is_main
-                = image_tag "yukichi.png", class: "rounded-circle monster-select", width: "100px"
-              - else
-                = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
   %h2.title #{ @user.name }のノグチ一覧
 
   = render partial: 'monster', collection: @monsters

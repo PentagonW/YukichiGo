@@ -19,8 +19,12 @@ $(() => {
       }
     }).done(() => {
       $(`#monster_${monster_id}`).modal('hide');
-      flash('メインを設定しました')
+      flash('メインを設定しました');
       $(".js_new-text").text('メインモンスターを変更する');
+      $.each($(".js-select-monster"), function(index, element) {
+        $(element).removeClass("monster-select");
+      });
+      $(`.js-monster-${monster_id}`).addClass("monster-select");
     });
   })
 });

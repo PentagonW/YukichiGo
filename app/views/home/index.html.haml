@@ -14,23 +14,3 @@
         - current_user.monsters.each do |monster|
           = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
             = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
-
--# modal
-- current_user.monsters.each do |monster|
-  .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "monster_#{monster.id}"}
-    .modal-dialog{:role => "document"}
-      .modal-content
-        .modal-header
-          %h5.modal-title= monster.name
-          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true"} ×
-        .modal-body
-          .monster
-            .monster-image
-              = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
-            .monster-information
-              %div= monster.display_name
-              %div パワー : #{ monster.power }
-        .modal-footer
-          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary.js_deside-monster{ value: monster.id } メインに決めた！
