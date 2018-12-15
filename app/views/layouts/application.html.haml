@@ -14,17 +14,21 @@
     #flash
     = yield
     .menu
-      .menu-user
-        = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal" do
+      = link_to monsters_path, style: "width: 25%" do
+        .menu-world
+          %i.fas.fa-globe-asia
+          %p 世界のノグチ
+      = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal", style: "width: 25%" do
+        .menu-user
           %i.fas.fa-hand-rock
           %p バトル
-      .menu-camera
-        %i.fas.fa-camera
-        = link_to new_monster_path do
+      = link_to new_monster_path, style: "width: 25%" do
+        .menu-camera
+          %i.fas.fa-camera
           %p あたらしいノグチ
-      .menu-monsters
-        %i.fas.fa-money-bill
-        = link_to user_path current_user.id do
+      = link_to user_path current_user.id, style: "width: 25%" do
+        .menu-monsters
+          %i.fas.fa-money-bill
           %p モンスター一覧
 
     -# modal
