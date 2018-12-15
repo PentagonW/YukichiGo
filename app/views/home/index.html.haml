@@ -1,16 +1,29 @@
 .mt-2.p-2
-  - if current_user.main_monster.nil?
-    .card
-      .card-body
-        %p.js_new-text
-          メインモンスターを設定していません。バトルをするために設定しましょう！
-        - current_user.monsters.each do |monster|
-          = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
-            = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+  - if current_user.monsters.empty?
+    .text-center
+      %p はじめまして !!
+      %p.mb-5 YukichiGO!の世界へようこそ
+      %p この世界にはたくさんのノグチがいます。
+      %p.mb-5 あなたがけの最強のノグチを探してみよう！
+      %p まずは、右下の「ノグチ追加」から
+      %p お札読み込んでノグチをGETしよう!!
+
+      .mt-5
+        = image_tag "first.png", width: "200px"
+
   - else
-    .card
-      .card-body
-        %p メインモンスターを変更する
-        - current_user.monsters.each do |monster|
-          = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
-            = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+    - if current_user.main_monster.nil?
+      .card
+        .card-body
+          %p.js_new-text
+            メインモンスターを設定していません。バトルをするために設定しましょう！
+          - current_user.monsters.each do |monster|
+            = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
+              = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
+    - else
+      .card
+        .card-body
+          %p メインモンスターを変更する
+          - current_user.monsters.each do |monster|
+            = link_to "#", "data-target" => "#monster_#{monster.id}", "data-toggle" => "modal" do
+              = image_tag "yukichi.png", class: "rounded-circle", width: "100px"
