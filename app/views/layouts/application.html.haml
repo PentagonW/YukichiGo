@@ -17,7 +17,7 @@
       .menu-list 
         = link_to monsters_path do
           .menu-world
-            %i.fas.fa-globe-asia
+            %i.fas.fa-globe
             %p 世界のノグチ
       .menu-list
         = link_to "#", "data-target" => "#main_monster", "data-toggle" => "modal", class: "js-menu-battle" do
@@ -39,7 +39,7 @@
 
     -# modal
     - if current_user.main_monster
-      .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "main_monster", class: ".js-main_monster"}
+      .modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1", id: "main_monster", class: "js-main_monster"}
         .modal-dialog{:role => "document"}
           .modal-content
             .modal-header
