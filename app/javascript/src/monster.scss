@@ -4,7 +4,7 @@
   &-image {
     margin-right: 10px;
   }
-  
+
   &-select {
     border: solid 1px red;
   }
@@ -22,4 +22,9 @@
 
 .big {
   font-size: 65px;
+}
+
+.complete-back {
+  background: linear-gradient(-135deg, #E4A972, #9941D8);
+  height: 100%;
 }
