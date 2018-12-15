@@ -9,3 +9,5 @@
 
         %div= monster.display_name
         %div パワー : #{ monster.power }
+        - if monster.user != current_user
+          = link_to "こいつと戦う", new_user_battle_url(monster.user), class: "btn btn-primary"

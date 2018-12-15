@@ -3,7 +3,15 @@
 = image_tag "yukichi.png", width: '40%', class: "active-noguchi"
 = image_tag "yukichi.png", class: "active-noguchi", width: '40%'
 
-.battle-winner
-  %h2 勝者
-  = @judge.winner.name
-  = @judge.winner.main_monster.name
+.battle-winner.d-none.js-battle-winner
+  .p-3
+    %h2 勝者
+    %p.font-weight-bold= @judge.winner.name
+    %p= @judge.winner.main_monster.name
+
+    - if @judge.winner.name == current_user.name
+      %p.bg-success.text-white.p-3 YouWin!
+    - else
+      %p.bg-danger.text-white.p-3 You Lose...
+
+    = link_to "バトル履歴を見る", user_battles_path(current_user), class: "btn btn-primary"
