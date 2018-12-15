@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   # 所持金
   def money_in_hand
-    money + price_histories.pluck(:price).sum
+    money + money_histories.pluck(:price).sum
   end
 end
