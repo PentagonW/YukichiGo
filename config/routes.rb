@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root to: "home#index"
   resources :monsters
-  resources :battles, only: [:index, :new]
-  resources :users, only: [:show, :edit, :update]
+  resources :battles, only: :new
+  resources :users, only: [:show, :edit, :update] do
+    resources :battles, only: :index
+  end
 
   namespace :api do
     namespace :v1 do
