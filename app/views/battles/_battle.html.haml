@@ -1,3 +1,7 @@
+:ruby
+  today = Time.zone.today
+  created_date = battle.created_at.to_date
+
 .card.mb-3.mr-3
   .card-body
     = image_tag "aaa.png", height: "30"
@@ -6,3 +10,8 @@
       VS
       = battle.loser.name
     = image_tag "aaa.png", height: "30"
+    .float-right
+        - if  created_date == today
+          .badge.badge-primary NEW
+        - else
+          = "#{diffirence_date created_date}日前"
