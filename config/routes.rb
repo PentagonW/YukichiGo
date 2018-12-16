@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#index"
+  get '/how_to_take', to: 'home#how_to_take'
   resources :monsters do
     collection do
       get 'complete'
