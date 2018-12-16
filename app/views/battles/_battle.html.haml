@@ -11,7 +11,7 @@
       = battle.loser.name
     = image_tag "aaa.png", height: "30"
     .float-right
-        - if  created_date == today
-          .badge.badge-primary NEW
-        - else
-          = "#{diffirence_date created_date}日前"
+      - if  created_date == today
+        .badge.badge-primary NEW
+      - else
+        = "#{diffirence_date created_date}日前"
