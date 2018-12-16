@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     resources :battles, only: [:index, :new]
+    resources :transfers, only: [:new, :create]
   end
 
   namespace :api do

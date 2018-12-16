@@ -13,7 +13,8 @@
     "jquery": "^3.3.1",
     "jquery-ujs": "^1.2.2",
     "popper.js": "^1.14.6",
-    "rails-ujs": "^5.2.2"
+    "rails-ujs": "^5.2.2",
+    "zeroclipboard": "^2.3.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.1.10"
