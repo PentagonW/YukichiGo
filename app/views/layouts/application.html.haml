@@ -14,6 +14,13 @@
       = link_to root_path, class: "navbar-brand" do
         = image_tag "logo.png", width: "80px"
 
+    #flash
+      - if flash[:success]
+        .alert-success
+          %p= flash[:success]
+
+    = yield
+
     .menu
       .menu-list
         = link_to monsters_path do
@@ -30,13 +37,6 @@
           .menu-monsters
             %i.fas.fa-users
             %p.mini ユーザー情報
-
-    #flash
-      - if flash[:success]
-        .alert-success
-          %p= flash[:success]
-
-    = yield
 
     -# modal
     - if current_user.main_monster
