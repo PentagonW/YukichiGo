@@ -21,6 +21,7 @@ import Rails from 'rails-ujs';
 Rails.start();
 
 import 'packs/active_noguchi'
+import 'packs/active_wild_noguchi'
 import 'packs/main_monster'
 import 'packs/add_monster'
 import 'packs/alert_battle'

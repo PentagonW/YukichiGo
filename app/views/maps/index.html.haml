@@ -1,0 +1,63 @@
+.maps#map
+
+:javascript
+  // 場にいるモンスター
+  var monsters = []
+
+  function calculate() {
+    return Math.random() * ((0.01) - (-0.01)) + (-0.01);
+  }
+
+  function createMonster(latitude, longitude) {
+    var latlng = new google.maps.LatLng(latitude + calculate(), longitude + calculate())
+    var marker = new google.maps.Marker({
+      map: map,
+      position: latlng,
+      icon: "#{image_url("yukichi_icon.png")}"
+    });
+    marker.addListener("click", () => {
+      $.ajax({
+        url:'/api/v1/monsters',
+        type:'POST',
+        data:{
+          authenticity_token: $('[name="csrf-token"]')[0].content,
+        }
+      }).done((response) => {
+        window.location.href = `/monsters/${response.id}/wild_battles/new`;
+      });
+    });
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(() => {
+      marker.setMap(null);
+      monsters.pop();
+    }, 30000);
+    return marker;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var latlng = new google.maps.LatLng(latitude, longitude)
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: latlng,
+      zoom: 16
+    });
+
+    var own = new google.maps.Marker({
+      map: map,
+      position: latlng,
+      icon: "#{image_url("yukichi_icon.png")}"
+    });
+
+    setInterval(() => {
+      if(monsters.length < 10) {
+        var monster = createMonster(latitude, longitude);
+        monsters.push(monster);
+      }
+    }, 3000)
+  }
+
+  navigator.geolocation.getCurrentPosition(success);
+%script{ src: "https://code.jquery.com/jquery-3.3.1.js" }
+%script{ src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCFCuIXvM1YHlPcZiILdOdaFDBCAhHF8gk" }

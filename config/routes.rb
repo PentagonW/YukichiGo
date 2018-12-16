@@ -5,8 +5,10 @@ Rails.application.routes.draw do
       get 'complete'
       get 'failure'
     end
+    resources :wild_battles, only: [:new]
   end
 
+  resources :maps, only: :index
   resources :users, only: [:show, :edit, :update] do
     resources :battles, only: [:index, :new]
     resources :transfers, only: [:new, :create]
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :main_monsters, only: :create
+      resources :monsters, only: :create
     end
   end
 end
