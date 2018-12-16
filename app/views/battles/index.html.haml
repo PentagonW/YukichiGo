@@ -17,10 +17,12 @@
       - if @win_battles.blank?
         %span まだバトルがないゾ
       - else
-        = render partial: 'battle', collection: @win_battles, locals: { battles: @win_battles }
+        = render @win_battles
+      = paginate @win_battles, param_name: :win_page
   .tab-pane.fade#pills-lose{ role: "tabpanel", aria: { labelledby: "pills-lose-tab" } }
     .ml-3.my-3
       - if @lose_battles.blank?
         %span まだバトルがないゾ
       - else
-        = render partial: 'battle', collection: @lose_battles, locals: { battles: @lose_battles }
+        = render @lose_battles
+      = paginate @lose_battles, param_name: :lose_page

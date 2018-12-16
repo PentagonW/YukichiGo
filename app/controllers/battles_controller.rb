@@ -1,7 +1,7 @@
 class BattlesController < ApplicationController
   def index
-    @win_battles = current_user.win_battles.order(created_at: :desc)
-    @lose_battles = current_user.lose_battles.order(created_at: :desc)
+    @win_battles = current_user.win_battles.order(created_at: :desc).page(params[:win_page])
+    @lose_battles = current_user.lose_battles.order(created_at: :desc).page(params[:lose_page])
   end
 
   def new
