@@ -4,6 +4,14 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     %meta{:content => "noindex", :name => "robots"}/
+    -# Twitter用
+    %meta{:content => "summary", :name => "twitter:card"}/
+    %meta{:content => "@Twitter", :name => "twitter:site"}/
+    %meta{:content => "YukichiGO", :name => "twitter:title"}/
+    %meta{:content => "https://yukichigo.herokuapp.com/", :name => "twitter:url"}/
+    %meta{:content => "Yukichi is everywhere.", :name => "twitter:description"}/
+    %meta{:content => "#{ image_url "yukichi.png"}", :name => "twitter:image"}/
+
     %title YukichiGo
     = csrf_meta_tags
     = csp_meta_tag
