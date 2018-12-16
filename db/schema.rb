@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_15_234959) do
+ActiveRecord::Schema.define(version: 2018_12_16_004622) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "monster_id"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 2018_12_15_234959) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "level", default: 5
+    t.integer "experience_value", default: 0
+    t.integer "experience_value_limit", default: 1000
     t.integer "ecology", default: 0
   end
 
