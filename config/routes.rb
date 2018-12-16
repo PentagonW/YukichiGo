@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       get 'complete'
       get 'failure'
     end
-    resources :battles, only: [:new]
+    resources :wild_battles, only: [:new]
   end
 
   resources :maps, only: :index

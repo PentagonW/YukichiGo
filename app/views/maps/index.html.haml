@@ -23,7 +23,7 @@
           authenticity_token: $('[name="csrf-token"]')[0].content,
         }
       }).done((response) => {
-        window.location.href = `/monsters/${response.id}/battles/new`;
+        window.location.href = `/monsters/${response.id}/wild_battles/new`;
       });
     });
     marker.setAnimation(google.maps.Animation.BOUNCE);

@@ -8,21 +8,14 @@ class WildBattleJudge
 
   TRILEMMA = { 0 => 2, 1 => 0, 2 => 1 }.freeze
 
-  def battle
+  def winner?
     return if invalid?
 
     trilemma
-    scores = monsters.map {|monster| [monster_power(monster), monster.user] }.to_h
+    barance =  (powers.first + 0.1 ) / (powers.sum + 0.2)
+    destiny = rand
 
-    self.winner = scores[scores.keys.max]
-    self.loser = scores[scores.keys.min]
-  end
-
-  def save
-    return if invalid?
-
-    battle
-    Battle.create winner: winner, loser: loser
+    destiny < barance
   end
 
   def monsters
@@ -36,7 +29,7 @@ class WildBattleJudge
   private
 
     def with_main_monster?
-      errors.add(:users, :invalid) unless monsters.all?
+      errors.add(:user, :invalid) unless monsters.all?
     end
 
     def powers
@@ -53,12 +46,10 @@ class WildBattleJudge
       end
 
       if TRILEMMA[monsters.first.class_type] == monsters.last.class_type
-        monsters.first.power *= 1.2
-        monsters.last.power *= 0.8
+        monsters.first.power *= 1.4
       end
       if TRILEMMA[monsters.last.class_type] == monsters.first.class_type
-        monsters.first.power *= 0.8
-        monsters.last.power *= 1.2
+        monsters.last.power *= 1.4
       end
     end
 end
