@@ -88,3 +88,4 @@
         .modal-footer
           %button.btn.btn-secondary.fontM{"data-dismiss" => "modal", :type => "button"} Close
           %button.btn.btn-primary.js_deside-monster.fontM{ value: monster.id } 君がメインだ！
+= analytics_init if Rails.env.production?
