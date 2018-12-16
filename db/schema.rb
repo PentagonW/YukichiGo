@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 2018_12_16_004622) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ecology", default: 0
     t.integer "level", default: 5
     t.integer "experience_value", default: 0
     t.integer "experience_value_limit", default: 1000
-    t.integer "ecology", default: 0
   end
 
   create_table "users", force: :cascade do |t|
