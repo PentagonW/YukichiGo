@@ -14,7 +14,7 @@
   .battle-winner.d-none.js-battle-wild-winner
     .card
       .card-body
-        - if @judge.winner?
+        - if @judge.win?
           %h2.bg-success.text-white.p-3.radius You Win!
           %p.font-weight-bold おめでとう！#{@wild_monster.name}をゲットしたよ！
         - else

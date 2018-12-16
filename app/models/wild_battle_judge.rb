@@ -18,6 +18,10 @@ class WildBattleJudge
     destiny < barance
   end
 
+  def win?
+    @win ||= winner?
+  end
+
   def monsters
     @monsters ||= [user.main_monster, wild_monster]
   end
