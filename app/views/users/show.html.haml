@@ -4,9 +4,9 @@
     .card
       .card-body
         %p #{@user.name}(所持コイン: #{@user.money_in_hand}ヒデコイン)
-        = link_to 'ユキチ名変更', edit_user_path(@user), class: "btn btn-primary mr-1 fontM"
-        = link_to 'バトル履歴', user_battles_path(@user), class: "btn btn-primary mr-1 fontM"
-        = link_to 'ユキチ引継ぎ', new_user_transfer_path(@user), class: "btn btn-primary fontM"
+        = link_to 'ユキチ名変更', edit_user_path(@user), class: "btn btn-primary mr-1 fontM mb-2"
+        = link_to 'バトル履歴', user_battles_path(@user), class: "btn btn-primary mr-1 fontM mb-2"
+        = link_to 'ユキチ引継ぎ', new_user_transfer_path(@user), class: "btn btn-primary fontM mb-2"
   %p.font-weight-bold.mt-4 #{ @user.name }のノグチ一覧
 
   = render partial: 'monster', collection: @monsters

@@ -15,11 +15,14 @@
         = image_tag "logo.png", width: "80px"
 
     #flash
+    .p-3
       - if flash[:success]
-        .alert-success
-          %p= flash[:success]
+        .alert.alert-success= flash[:success]
+      - if flash[:error]
+        .alert.alert-danger= flash[:error]
 
     = yield
+    .m-5
 
     .menu
       .menu-list
