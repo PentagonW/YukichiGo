@@ -1,3 +1,5 @@
+= javascript_pack_tag 'clipboard'
+
 .mt-2.p-2
   .text-center
     %p はじめまして !!
@@ -14,3 +16,17 @@
       .fas.fa-phone-square
       お問い合わせ
       %div= link_to "@rice_cooker_lab", "https://twitter.com/rice_cooker_lab"
+
+      .mt-2
+        .fas.fa-donate
+        寄付
+        %div
+          .fab.fa-paypal
+          (PayPal)
+          = link_to "PayPal", "https://www.paypal.me/kiyokuro"
+        .fab.fa-bitcoin
+        (Bitcoin)
+        = form_with do |form|
+          .d-flex
+            = form.text_field :brouweer_id, value: "1FvvLqqMM55VytJRA4kkEo9WmcdbG79wvH", class: "w-100 js-copytext", id: "target_text"
+            .btn.btn-primary.fontM{id: "copy_btn"} コピー
