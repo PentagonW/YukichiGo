@@ -4,10 +4,14 @@
 %h2.m-3.text-center バトル
 
 .m-3
-  = image_tag "yukichi.png", width: '40%', class: "active-noguchi"
-  = image_tag "yukichi.png", class: "active-noguchi", width: '40%'
+  .js-battle-wild.js-battle-wild-monster-information
+    %div.font-weight-bold 「あ、野生の#{@wild_monster.name}が現れた！」
+    %div パワー : #{ @wild_monster.power }
+    %div タイプ : #{ t(@wild_monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
+  = image_tag "yukichi.png", width: '40%', class: "active-noguchi js-active-noguchi d-none"
+  = image_tag "yukichi.png", class: "active-noguchi js-active-noguchi d-none", width: '40%'
 
-  .battle-winner.d-none.js-battle-winner
+  .battle-winner.d-none.js-battle-wild-winner
     .card
       .card-body
         - if @judge.winner?
