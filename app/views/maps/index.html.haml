@@ -15,6 +15,9 @@
       position: latlng,
       icon: "#{image_url("yukichi_icon.png")}"
     });
+    marker.addListener("click", () => {
+      $.ajax
+    });
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(() => {
       marker.setMap(null);
