@@ -9,11 +9,10 @@ class Monster < ApplicationRecord
     name || "ノグチ"
   end
 
-  def update_experience!(opponent, judge)
-    calculator = ExperienceCalculator.new monster: self, opponent: opponent, judge: judge
-    self.experience_value += calculator.gain
-    self.level += experience_value / experience_value_limit
-    self.experience_value %= experience_value_limit
-    save!
+  def update_experience(calculator)
+    self.experience_value = calculator.gained_experience
+    self.level += calculator.gained_level
+    self.power += calculator.gained_power
+    save
   end
 end

@@ -20,3 +20,10 @@
         %p= @judge.winner.main_monster.name
 
         = link_to "バトル履歴を見る", user_battles_path(current_user), class: "btn btn-primary fontM"
+    - calculator = @judge.winner == current_user ? @experience_form.winner_calculator : @experience_form.loser_calculator
+    .card.mt-2
+      .card-body
+        %h3 獲得
+        %p 経験値: +#{calculator.gain}
+        %p レベル: +#{calculator.gained_level}
+        %p パワー: +#{calculator.gained_power}
