@@ -1,0 +1,19 @@
+= javascript_pack_tag 'clipboard'
+
+.mt-2.p-2
+  .mb-3
+    .card
+      .card-body
+        %p.font-weight-bold.card-title ユキチの引き継ぎ
+        以下のテキストを別のブラウザーの引き継ぎフォームに入力してください
+        = form_with do |form|
+          .d-flex
+            = form.text_field :brouweer_id, value: @user.browser_id, id: "input", class: "w-100"
+            .btn.btn-primary.fontM{id: "copy"} コピー
+
+  %p.font-weight-bold 引き継ぎフォーム
+  = form_with(url: user_transfers_path(@user), local: true) do |form|
+    .form-group
+      = form.text_field :browser_id, class: "form-control"
+
+    = form.submit "引き継ぐ", class: "btn btn-primary btn-lg btn-block fontM"
