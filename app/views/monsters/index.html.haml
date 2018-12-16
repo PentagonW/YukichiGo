@@ -4,6 +4,7 @@
     .btn.btn-outline-secondary.mb-3.js_strong-noguchi-button.fontM.ml-auto パワー順に変更
     .btn.btn-outline-secondary.mb-3.js_world-noguchi-button.d-none.fontM.ml-auto 新着順に変更
 
+  = link_to "野生のノグチを捕まえに行く", maps_path, class: "btn btn-primary mb-2"
   .js_world-noguchi
     = render partial: 'monster', collection: @world_monsters
 
