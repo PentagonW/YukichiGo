@@ -4,7 +4,25 @@ class ExperienceCalculator
   attr_accessor :monster, :opponent, :judge
 
   def gain
-    (base_point * distance * 0.5 / monster.level).round
+    @gain ||= (base_point * distance * 0.5 / monster.level).round
+  end
+
+  def gained_power
+    @gained_power ||= base_power * gained_level
+  end
+
+  def gained_experience
+    experience_value = monster.experience_value + gain
+    @gained_experience ||= experience_value % monster.experience_value_limit
+  end
+
+  def gained_level
+    experience_value = monster.experience_value + gain
+    @gained_level ||= experience_value / monster.experience_value_limit
+  end
+
+  def base_power
+    200
   end
 
   def base_point
