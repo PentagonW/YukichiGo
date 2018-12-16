@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def browser_id
-    @browser_id ||= cookies["noguchi_go"] || generate_cookies
+    @browser_id ||= cookies.permanent["noguchi_go"] || cookies["noguchi_go"] || generate_cookies
   end
 
   def current_user
@@ -11,12 +11,16 @@ class ApplicationController < ActionController::Base
 
   def set_browser_id(browser_id)
     @current_user = User.find_by(browser_id: browser_id)
-    cookies["noguchi_go"] = @current_user.browser_id if @current_user
+    cookies.permanent["noguchi_go"] = @current_user.browser_id if @current_user
+  end
+
+  def persistence_cookie
+    cookies.permanent["noguchi_go"] ||= cookies["noguchi_go"]
   end
 
   private
 
     def generate_cookies
-      cookies["noguchi_go"] = SecureRandom.uuid
+      cookies.permanent["noguchi_go"] = SecureRandom.uuid
     end
 end
