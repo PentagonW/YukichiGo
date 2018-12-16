@@ -3,7 +3,7 @@ class WildBattlesController < ApplicationController
     @wild_monster = Monster.find params[:monster_id]
     @judge = WildBattleJudge.new user: current_user, wild_monster: @wild_monster
     # 勝った場合はゲット
-    if @judge.winner?
+    if @judge.win?
       @wild_monster.user = current_user
       @wild_monster.save!
     end
