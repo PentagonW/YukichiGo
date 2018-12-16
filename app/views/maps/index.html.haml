@@ -16,7 +16,15 @@
       icon: "#{image_url("yukichi_icon.png")}"
     });
     marker.addListener("click", () => {
-      $.ajax
+      $.ajax({
+        url:'/api/v1/monsters',
+        type:'POST',
+        data:{
+          authenticity_token: $('[name="csrf-token"]')[0].content,
+        }
+      }).done((response) => {
+        window.location.href = `/monsters/${response.id}/battles/new`;
+      });
     });
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(() => {
@@ -51,4 +59,5 @@
   }
 
   navigator.geolocation.getCurrentPosition(success);
+%script{ src: "https://code.jquery.com/jquery-3.3.1.js" }
 %script{ src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCFCuIXvM1YHlPcZiILdOdaFDBCAhHF8gk" }
