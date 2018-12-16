@@ -8,8 +8,8 @@
         以下のテキストを別のブラウザーの引き継ぎフォームに入力してください
         = form_with do |form|
           .d-flex
-            = form.text_field :brouweer_id, value: @user.browser_id, id: "input", class: "w-100"
-            .btn.btn-primary.fontM{id: "copy"} コピー
+            = form.text_field :brouweer_id, value: @user.browser_id, class: "w-100 js-copytext", id: "target_text"
+            .btn.btn-primary.fontM{id: "copy_btn"} コピー
 
   %p.font-weight-bold 引き継ぎフォーム
   = form_with(url: user_transfers_path(@user), local: true) do |form|
