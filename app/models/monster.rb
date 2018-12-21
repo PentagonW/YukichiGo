@@ -6,7 +6,7 @@ class Monster < ApplicationRecord
   delegate :class_type, to: :ability, allow_nil: true
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
-  before_save :ensure_city
+  before_save :ensure_city, if: -> { self.address.present? }
 
   def display_name
     name || "ノグチ"
@@ -20,7 +20,7 @@ class Monster < ApplicationRecord
   end
 
   def ensure_city
-    array = address.split(", ")
+    array = self.address.split(", ")
     self.country = array.last
     self.city = "#{array[array.count - 4]}/#{array[array.count - 5]}"
   end
