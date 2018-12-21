@@ -13,4 +13,6 @@
             %div 経験値: #{ monster.experience_value } / #{ monster.experience_value_limit }
             %div パワー : #{ monster.power }
             %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
+            - if monster.address
+              %div 捕まえた場所 : #{monster.city}(#{monster.country})
             = link_to "バイバイする", monster_path(monster), method: :delete, class: "btn btn-danger fontM mt-3", data: { confirm: '本当にこのノグチとバイバイしますか？(10ヒデコイン必要です)' }

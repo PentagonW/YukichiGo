@@ -19,6 +19,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'google-analytics-rails'
+gem 'geocoder'
 
 group :production do
   gem 'pg'
