@@ -9,6 +9,7 @@
 
         .small.flex-fill
           %div= monster.display_name
+          %div レベル: #{ monster.level }
           %div パワー : #{ monster.power }
           %div タイプ : #{ t(monster.ability&.class_type, scope: "activerecord.enum.ability.class_type") }
           %div 勝率: #{ monster.user.battle_rate.round }%
