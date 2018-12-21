@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_004622) do
+ActiveRecord::Schema.define(version: 2018_12_21_154609) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "monster_id"
@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 2018_12_16_004622) do
     t.integer "level", default: 5
     t.integer "experience_value", default: 0
     t.integer "experience_value_limit", default: 1000
+    t.float "longitude"
+    t.float "latitude"
+    t.string "country"
+    t.string "city"
+    t.string "address"
   end
 
   create_table "users", force: :cascade do |t|
